@@ -1,0 +1,33 @@
+{
+	"name": "relist",
+	"version": "1.0.0",
+	"description": "You List",
+	"main": "index.js",
+	"scripts": {
+		"start": "node server.js",
+		"server": "nodemon server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Mo01/ReList.git"
+	},
+	"keywords": [
+		"ReList"
+	],
+	"author": "Mohammed Alneama",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Mo01/ReList/issues"
+	},
+	"homepage": "https://github.com/Mo01/ReList#readme",
+	"dependencies": {
+		"body-parser": "^1.19.0",
+		"concurrently": "^4.1.0",
+		"config": "^3.1.0",
+		"express": "^4.16.4",
+		"mongoose": "^5.5.5"
+	},
+	"devDependencies": {
+		"nodemon": "^1.19.0"
+	}
+}
