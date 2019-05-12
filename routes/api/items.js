@@ -32,4 +32,16 @@ router.delete('/:id', auth, (req, res) => {
 		.catch((err) => res.status(404).json({ success: false }));
 });
 
+// @route   PUT api/items/:id
+// @desc    PUT A Item
+// @access  Private
+router.put('/:id', auth, (req, res) => {
+	Item.findById(req.params.id)
+		.then((item) => {
+			item.name = req.body.name;
+			item.save().then((item) => Item.find().sort({ date: -1 }).then((items) => res.json(items)));
+		})
+		.catch((err) => res.status(404).json({ success: false }));
+});
+
 module.exports = router;
