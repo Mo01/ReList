@@ -29,6 +29,7 @@ export const addItem = (item) => (dispatch, getState) => {
 };
 
 export const deleteItem = (id) => (dispatch, getState) => {
+	console.log('deleteItem', id);
 	axios
 		.delete(`/api/items/${id}`, tokenConfig(getState))
 		.then((res) =>
@@ -41,6 +42,7 @@ export const deleteItem = (id) => (dispatch, getState) => {
 };
 
 export const updateItem = (id, item) => (dispatch, getState) => {
+	console.log('updateItem xx', id, item);
 	axios
 		.put(`/api/items/${id}`, item, tokenConfig(getState))
 		.then((res) => {

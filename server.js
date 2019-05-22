@@ -11,14 +11,14 @@ app.use(express.json());
 // DB Config
 // const db = config.get('mongoURI');
 const db = require('./config/keys').mongoURI;
-console.log('LEVI connecting to', db);
+console.log('Mo connecting to', db);
 // Connect to Mongo
 mongoose
-  .connect(db, { useNewUrlParser: true })
-  .then(() => console.log("MongoDB connected..."))
-  .catch(err => console.log(err));
+	.connect(db, { useNewUrlParser: true })
+	.then(() => console.log('MongoDB connected...'))
+	.catch((err) => console.log(err));
 
-console.log('LEVI connected call initiated');
+console.log('Mo connected call initiated');
 
 // Use Routes
 app.use('/api/items', require('./routes/api/items'));
@@ -27,15 +27,14 @@ app.use('/api/auth', require('./routes/api/auth'));
 
 // Serve static assets if in production
 // if (process.env.NODE_ENV === 'production') {
-  // Set static folder
-  app.use(express.static('client/public'));
+// Set static folder
+app.use(express.static('client/public'));
 
-  app.get('*', (req, res) => {
-    console.log('MO', path.resolve(__dirname, 'client', 'public', 'index.html'));
-    res.sendFile(path.resolve(__dirname, 'client', 'public', 'index.html'));
-  });
+app.get('*', (req, res) => {
+	console.log('MO', path.resolve(__dirname, 'client', 'public', 'index.html'));
+	res.sendFile(path.resolve(__dirname, 'client', 'public', 'index.html'));
+});
 // }
-
 
 const port = process.env.PORT || 4000;
 

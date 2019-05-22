@@ -29,7 +29,7 @@ class Relist extends Component {
 	state = {
 		modal: false,
 		name: '',
-		complete: false
+		complete: 1
 	};
 	currentId = '';
 
@@ -40,21 +40,22 @@ class Relist extends Component {
 	onDeleteClick = (id) => {
 		this.props.deleteItem(id);
 	};
-	toggle = (id, name) => {
-		console.log('Levi!!', id, name);
+	toggle = (id, name, complete) => {
+		console.log('Mo!!', id, name, complete);
 		this.setState({
 			modal: !this.state.modal,
-			name: name
+			name: name,
+			complete: this.state.complete
 		});
 		this.currentId = id;
 	};
 
-	toggleCheck = () => {
-		console.log('Levi!!', this.state.complete);
-		this.setState({
-			complete: !this.state.complete
-		});
-	};
+	// toggleCheck = () => {
+	// 	console.log('Mo!!', this.state.complete);
+	// 	this.setState({
+	// 		complete: !this.state.complete
+	// 	});
+	// };
 
 	onChange = (e) => {
 		this.setState({ [e.target.name]: e.target.value });
@@ -64,10 +65,11 @@ class Relist extends Component {
 		e.preventDefault();
 
 		const newItem = {
-			name: this.state.name
+			name: this.state.name,
+			complete: this.state.complete
 		};
 
-		console.log('Levi, updating with', this.currentId, newItem);
+		console.log('Mo, updating with', this.currentId, newItem);
 		// Add item via addItem action
 		this.props.updateItem(this.currentId, newItem);
 
