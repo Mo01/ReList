@@ -12,7 +12,8 @@ const ItemSchema = new Schema({
 		default: Date.now
 	},
 	complete: {
-		type: String
+		type: String,
+		default: 'complete'
 	}
 });
 

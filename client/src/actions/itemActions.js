@@ -31,7 +31,7 @@ export const addItem = (item) => (dispatch, getState) => {
 export const deleteItem = (id) => (dispatch, getState) => {
 	console.log('deleteItem', id);
 	axios
-		.delete(`/api/items/${id}`, tokenConfig(getState))
+		.delete(`/api/items/${id}`, tokenConfig(getState), console.log('getState', getState))
 		.then((res) =>
 			dispatch({
 				type: DELETE_ITEM,
@@ -44,7 +44,7 @@ export const deleteItem = (id) => (dispatch, getState) => {
 export const updateItem = (id, item) => (dispatch, getState) => {
 	console.log('updateItem xx', id, item);
 	axios
-		.put(`/api/items/${id}`, item, tokenConfig(getState))
+		.put(`/api/items/${id}`, item, tokenConfig(getState), console.log('put  ', item, 'getState', getState))
 		.then((res) => {
 			console.log('Finished put', JSON.stringify(res));
 			dispatch({

@@ -41,24 +41,33 @@ class Relist extends Component {
 		this.props.deleteItem(id);
 	};
 	toggle = (id, name, complete) => {
-		console.log('Mo!!', id, name, complete);
+		console.log('Mo!toggle!', id, name, complete);
 		this.setState({
 			modal: !this.state.modal,
 			name: name,
-			complete: 'MOOOOOOO'
+			complete: 'MOOOOOOO222222'
 		});
 		this.currentId = id;
 	};
 
-	// toggleCheck = () => {
-	// 	console.log('Mo!!', this.state.complete);
-	// 	this.setState({
-	// 		complete: !this.state.complete
-	// 	});
-	// };
+	toggleCheck = (id, name, complete) => {
+		console.log('Mo!toggleCheck!', id, name, complete);
+		this.setState({
+			complete: 'MOOOOOOO111111111'
+		});
+		this.currentId = id;
+		const newItem = {
+			name: name,
+			complete: this.state.complete
+		};
+
+		console.log('Mo,toggleCheck', this.currentId, newItem, this.state.complete);
+		// Add item via addItem action
+		this.props.updateItem(this.currentId, newItem);
+	};
 
 	onChange = (e) => {
-		this.setState({ [e.target.name]: e.target.value });
+		this.setState({ [e.target.name]: e.target.value, [e.target.complete]: e.target.value });
 	};
 
 	onSubmit = (e) => {
@@ -83,7 +92,7 @@ class Relist extends Component {
 			<Container>
 				<ListGroup>
 					<TransitionGroup className="list-list">
-						{items.map(({ _id, name, date }) => (
+						{items.map(({ _id, name, date, complete }) => (
 							<CSSTransition key={_id} timeout={500} classNames="fade">
 								<ListGroupItem>
 									{this.props.isAuthenticated ? (
@@ -107,7 +116,11 @@ class Relist extends Component {
 												</Button>
 
 												<Label check>
-													<Input type="checkbox" onChange={this.toggleCheck} />
+													<Input
+														type="checkbox"
+														defaultValue={this.state.complete}
+														onChange={this.toggleCheck.bind(this, _id, name, complete)}
+													/>
 												</Label>
 
 												{name}
