@@ -29,7 +29,7 @@ class Relist extends Component {
 	state = {
 		modal: false,
 		name: '',
-		complete: 1
+		complete: 'MOOOOOO'
 	};
 	currentId = '';
 
@@ -45,7 +45,7 @@ class Relist extends Component {
 		this.setState({
 			modal: !this.state.modal,
 			name: name,
-			complete: this.state.complete
+			complete: 'MOOOOOOO'
 		});
 		this.currentId = id;
 	};
@@ -69,7 +69,7 @@ class Relist extends Component {
 			complete: this.state.complete
 		};
 
-		console.log('Mo, updating with', this.currentId, newItem);
+		console.log('Mo, updating with', this.currentId, newItem, this.state.complete);
 		// Add item via addItem action
 		this.props.updateItem(this.currentId, newItem);
 

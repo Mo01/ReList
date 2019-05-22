@@ -12,7 +12,7 @@ const ItemSchema = new Schema({
 		default: Date.now
 	},
 	complete: {
-		type: Number
+		type: String
 	}
 });
 

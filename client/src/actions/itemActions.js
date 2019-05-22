@@ -46,7 +46,7 @@ export const updateItem = (id, item) => (dispatch, getState) => {
 	axios
 		.put(`/api/items/${id}`, item, tokenConfig(getState))
 		.then((res) => {
-			console.log('Finished put', res);
+			console.log('Finished put', JSON.stringify(res));
 			dispatch({
 				type: GET_ITEMS,
 				payload: res.data
