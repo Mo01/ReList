@@ -36,9 +36,12 @@ router.delete('/:id', auth, (req, res) => {
 // @desc    PUT A Item
 // @access  Private
 router.put('/:id', auth, (req, res) => {
+	console.log("Put item", res)
 	Item.findById(req.params.id)
 		.then((item) => {
+			console.log("Put item", item)
 			item.name = req.body.name;
+			item.complete = req.body.complete;
 			item.save().then((item) => Item.find().sort({ date: -1 }).then((items) => res.json(items)));
 		})
 		.catch((err) => res.status(404).json({ success: false }));
