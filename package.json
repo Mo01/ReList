@@ -20,7 +20,7 @@
 		"express": "^4.17.0",
 		"jsonwebtoken": "^8.5.0",
 		"mongoose": "^5.5.10",
-		"yarn": "^1.16.0"
+		"yarn": "^1.22.0"
 	},
 	"devDependencies": {
 		"nodemon": "^1.17.5"
