@@ -18,7 +18,7 @@
 		"concurrently": "^4.1.0",
 		"config": "^3.0.1",
 		"express": "^4.17.0",
-		"jsonwebtoken": "^8.5.0",
+		"jsonwebtoken": "^9.0.0",
 		"mongoose": "^5.5.10",
 		"yarn": "^1.16.0"
 	},
